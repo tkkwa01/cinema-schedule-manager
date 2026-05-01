@@ -11,7 +11,7 @@ import { LoadingIndicator } from '../components/common/LoadingIndicator';
 import { ErrorMessage } from '../components/common/ErrorMessage';
 import { useAppContext } from '../store/AppContext';
 import { fetchSchedules } from '../api/client';
-import { groupByTheater, groupSchedulesByMovieId, generateDateRangeFromToday, sortByStartTime } from '../utils/scheduleUtils';
+import { groupByTheater, groupSchedulesByMovieId, sortByStartTime } from '../utils/scheduleUtils';
 import type { Schedule } from '../types/index';
 
 const THEATER_LABELS: Record<string, string> = {
@@ -21,7 +21,7 @@ const THEATER_LABELS: Record<string, string> = {
 
 export function SchedulePage() {
   const { state, setDate, setLastUpdatedAt, setSchedules, dispatch } = useAppContext();
-  const { selectedDate, refreshTrigger, schedulesCache, availableDates } = state;
+  const { selectedDate, refreshTrigger, schedulesCache } = state;
 
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
@@ -33,8 +33,7 @@ export function SchedulePage() {
   const setSchedulesRef = useRef(setSchedules);
   setSchedulesRef.current = setSchedules;
 
-  // availableDates が空の場合は今日から14日間をフォールバックとして使用する
-  const _navDates = availableDates.length > 0 ? availableDates : generateDateRangeFromToday();
+  // availableDates が空の場合は今日から14日間をフォールバックとして使用する（App.tsxのNavBarで使用）
   const cachedSchedules = schedulesCache[selectedDate] ?? null;
 
   // 日付が変わったら展開状態をリセットする

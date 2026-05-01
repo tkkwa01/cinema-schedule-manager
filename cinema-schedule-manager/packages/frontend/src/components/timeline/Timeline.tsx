@@ -55,7 +55,7 @@ function generateTimeLabels(): string[] {
  * タイムラインコンポーネント
  * ガントチャート形式で上映スケジュールを表示する
  */
-export function Timeline({ theater, date, schedules, onBlockClick }: TimelineProps) {
+export function Timeline({ theater, date: _date, schedules, onBlockClick }: TimelineProps) {
   const [selectedSchedule, setSelectedSchedule] = useState<Schedule | null>(null);
 
   // 劇場でフィルタリングしてスタジオ別にグループ化する

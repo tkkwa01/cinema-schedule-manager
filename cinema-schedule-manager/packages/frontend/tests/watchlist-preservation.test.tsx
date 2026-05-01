@@ -40,7 +40,8 @@ function createTestSchedule(movieId: string, movieTitle: string, date: string): 
   };
 }
 
-/** テスト用映画を生成する */
+/** テスト用映画を生成する（将来の拡張用） */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function createTestMovie(id: string, title: string): Movie {
   return {
     id,

@@ -96,3 +96,13 @@ export interface ErrorState {
   /** 再試行可能かどうか */
   retryable: boolean;
 }
+
+/** APIレスポンスの共通ラッパー型 */
+export interface ApiResponse<T> {
+  /** レスポンスデータ */
+  data: T;
+  /** 最終更新日時（ISO 8601形式、未取得時はnull） */
+  lastUpdatedAt: string | null;
+  /** キャッシュから返されたデータかどうか */
+  cached: boolean;
+}
