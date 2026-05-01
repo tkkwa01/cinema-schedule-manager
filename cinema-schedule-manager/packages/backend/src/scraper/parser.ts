@@ -179,10 +179,7 @@ export class CinemaCityParser implements IParser {
           const studioEls = $(row).find('.schedule-studio-name');
 
           if (studioEls.length > 0 && currentMovieTitle) {
-            const rowStartTimes = $(row).find('.start-time');
-            const rowEndTimes = $(row).find('.end-time');
-
-            studioEls.each((j, studioEl) => {
+            studioEls.each((_j, studioEl) => {
               const studio = $(studioEl).text().trim();
               if (!studio) return;
 
