@@ -1,0 +1,38 @@
+# 依存パッケージ
+node_modules/
+
+# ビルド成果物
+dist/
+build/
+
+# SQLiteデータベースファイル
+data/*.db
+data/*.db-shm
+data/*.db-wal
+
+# ログファイル
+logs/*.log
+
+# 環境変数ファイル
+.env
+.env.local
+.env.*.local
+
+# TypeScriptビルドキャッシュ
+*.tsbuildinfo
+
+# テストカバレッジ
+coverage/
+
+# Viteキャッシュ
+.vite/
+
+# macOS
+.DS_Store
+
+# エディタ設定
+.vscode/
+.idea/
+
+# npmデバッグログ
+npm-debug.log*
